@@ -35,23 +35,56 @@ function AdminDashBoard() {
   const researches = [
     {
       id:1,
-      title:"introduction to our researches",
+      title:"How to treat soils",
       description:"lorem ipsum doresamnt we are ba htrol lorrems",
-      image:"/images/reseach1.jpg"
+      image:"/images/Agri11.jpg"
     },
     {
       id:4,
-      title:"impact of medecines",
+      title:"top Soild deases",
       description:"lorem ipsum doresamnt we are ba htrol lorrems",
-      image:"/images/reseach2.jpg"
+      image:"/images/agri18.jpg"
     },
     {
       id:3,
-      title:"pharmacy reseach",
+      title:"Land Management",
       description:"lorem ipsum doresamnt we are ba htrol lorrems",
-      image:"/images/reseach3.jpg"
+      image:"/images/agri7.jpeg"
     }
   ]
+
+  const deseases = [
+    {
+        id: 1,
+        name: "silt",
+        type: "virus",
+        symptoms: "spots",
+        parts: "leaves",
+        date:"12/9/2023"
+    },
+    {
+      id: 4,
+      name: "phonrt",
+      type: "bacteria",
+      symptoms: "wilting",
+      parts: "fruits",
+      date:"12/9/2023"
+  },
+  {
+    id: 3,
+    name: "miltererous",
+    type: "fungus",
+    symptoms: "iscloration",
+    parts: "roots",
+    date:"12/9/2023"
+},
+
+
+  
+   
+    
+];
+
 
   return (
     <div className="admin-dashboard-wrapper">
@@ -62,7 +95,7 @@ function AdminDashBoard() {
             <FaUserGroup />
           </div> */}
           <div className="admin-dash-numbers">
-            <h5>Total students</h5>
+            <h5>Total Soils</h5>
             <h2>12
             </h2>
             <div className="increase-container">
@@ -76,7 +109,7 @@ function AdminDashBoard() {
             <FaUser />
           </div> */}
           <div className="admin-dash-numbers">
-            <h5>Total Partners</h5>
+            <h5>Total  Diseases Available</h5>
             <h2>45</h2>
             <div className="increase-container">
               <div className="increase-student"></div>
@@ -89,7 +122,7 @@ function AdminDashBoard() {
             <GrBusinessService />
           </div> */}
           <div className="admin-dash-numbers">
-            <h5>Total Researches</h5>
+            <h5>Water usage</h5>
             <h2>67</h2>
             <div className="increase-container">
               <div className="increase-student"></div>
@@ -102,7 +135,7 @@ function AdminDashBoard() {
             <GrBusinessService />
           </div> */}
           <div className="admin-dash-numbers">
-            <h5>Total Courses</h5>
+            <h5>Total Remedies</h5>
             <h2>56</h2>
             <div className="increase-container">
               <div className="increase-student"></div>
@@ -112,16 +145,41 @@ function AdminDashBoard() {
         </div>
       </div>
     
-      
-          
+    
       </div>
       
 <div className="student-reseach-wrapper">
-
-
+<div className="new-student-wrapper">
+        <h5>Latest Recorded Deseases</h5>
+        <table className="custom-table">
+          <thead>
+            <tr>
+              <th>Desease name</th>
+              <th>Pathogen Type</th>
+              <th>Symptoms</th>
+              <th>affected Part</th>
+              <th>Date recorded</th>
+            </tr>
+          </thead>
+          <tbody>
+            {deseases?.map((row, index) => (
+              <tr key={index}>
+                {/* <td>{row.id}</td> */}
+                <td>{row.name}</td>
+                <td>{row.type}</td>
+                <td>{row.symptoms}</td>
+                <td>{row.parts}</td>
+             
+                <td>{row.date}</td>
+            
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <div className="reseach-dash-wrapper">
         <div className="reseach-header-dash">
-          <h6>Latest Reseach</h6>
+          <h6>Latest Remedies</h6>
         </div>
 
 <div className="reseach-body-dash">
