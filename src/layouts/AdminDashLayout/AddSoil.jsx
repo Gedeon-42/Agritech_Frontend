@@ -20,13 +20,15 @@ function AddSoil() {
     e.preventDefault();
     setLoading(true);
     const formData = new FormData();
-    formData.append("title", e.target.title.value);
-    formData.append("author", e.target.author.value);
+    formData.append("type", e.target.type.value);
+    formData.append("location", e.target.location.value);
+    formData.append("slope", e.target.slope.value);
     formData.append("date", e.target.date.value);
-    formData.append("description", editorRef.current.getContent());
+  formData.append("moisture",e.target.moisture.value)
+  formData.append("nutrients",e.target.nutrients.value)
     formData.append("image", e.target.image.files[0]);
     try {
-      const response = await axiosclient.post("/reseaches", formData, {
+      const response = await axiosclient.post("/soil", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -34,7 +36,7 @@ function AddSoil() {
       showToastMessage();
       setTimeout(() => {
         // handleCourseModel();
-        window.location.href = "/admin/cms/researches";
+        window.location.href = "/admin/soil";
       }, 3000);
       console.log("Response:", response.data);
     } catch (error) {
@@ -64,7 +66,7 @@ function AddSoil() {
           </div>
 
           <label htmlFor="">Soil Type</label>
-          <select name="" id="">
+          <select name="type" id="">
             <option value="sandy">sandy</option>
             <option value="clay">clay</option>
             <option value="loamy">loamy</option>
@@ -107,9 +109,11 @@ function AddSoil() {
           <label htmlFor=""> Date of Sampling</label>
           <input type="date" name="date" />
           <label htmlFor="">Moisture</label>
-          <input type="text" placeholder="Enter  amount ofwater in soil" />
+          <input type="text" name="moisture" placeholder="Enter  amount of water in soil" />
+          <label htmlFor="">Soil Slope</label>
+          <input type="text" name="slope" placeholder="Enter slope" />
           <label htmlFor="Nutrients">Soil Nutrients</label>
-          <select name="" id="">
+          <select name="nutrients" id="">
             <option value="Nitrogen (N)">Nitrogen (N)</option>
             <option
               value="Phosphorus (P)"

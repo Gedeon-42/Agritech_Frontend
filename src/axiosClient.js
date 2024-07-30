@@ -1,7 +1,7 @@
 import axios from 'axios'
 
   const axiosclient = axios.create({
-    baseURL:`${import.meta.env.VITE_API_BASE_URL}/api`
+    baseURL:'https://agritech-backend3.onrender.com/'
   })
   axiosclient.interceptors.request.use((config) => {
     config.headers.Authorization = `Bearer ${localStorage.getItem('Token')}`

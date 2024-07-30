@@ -8,7 +8,6 @@ const stateContext = createContext({
   user: null,
   setUser: () => {},
 });
-
 export const ContextProvider = ({ children }) => {
   const [token, _setToken] = useState(localStorage.getItem("Token"));
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
@@ -33,16 +32,7 @@ export const ContextProvider = ({ children }) => {
     }
   };
 
-  // Get all Talents
-  const { data: Talents } = useQuery({
-    queryKey: 'Talents',
-    queryFn: async () => {
-       const res = await axiosclient.get('/talents');
-//  console.log(data)
-      return res.data;
-    },
-    onSuccess: () => setLoading(true),
-  });
+ 
 //  Get all employers
   // const { data: Employers } = useQuery({
   //   queryKey: 'Employers',
@@ -130,7 +120,7 @@ export const ContextProvider = ({ children }) => {
         SignupMutation,
         LoginMutation,
         errors_login,
-        Talents,
+        
         //  Employers,
         
         setErrors_login

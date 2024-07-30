@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import axiosclient from "../../axiosClient";
 
 function SoilManagement() {
     const researches = [
@@ -37,6 +38,11 @@ function SoilManagement() {
         
     ];
 
+    useEffect(()=>{
+        axiosclient.get('/').then(({data})=>{
+console.log(data)
+        })
+    },[])
     return (
         <div className="admin-research-wrapper">
             <div className="admin-research-header">
